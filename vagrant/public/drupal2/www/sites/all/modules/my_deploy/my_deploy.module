@@ -1,0 +1,11 @@
+<?php
+
+function my_deploy_services_resources_alter(&$resources, &$endpoint) {
+  $resources['file']['operations']['delete']['access callback'] = 'custom_access_file';
+  $resources['file']['operations']['retrieve']['access callback'] = 'custom_access_file';
+  $resources['file']['operations']['update']['access callback'] = 'custom_access_file';
+}
+
+function custom_access_file() {
+  return TRUE;
+}
